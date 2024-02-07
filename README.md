@@ -20,12 +20,6 @@ This clears the cache for sites hosted on WP Engine.
 
 ## Setup
 
-### Composer
-Include via composer:
-```bash
-composer require a7/wpe-cache-flush
-```
-
 ### Private Key
 Create a [private key](https://www.random.org/strings/?num=10&len=20&digits=on&upperalpha=on&loweralpha=on&unique=on&format=html&rnd=new).
 
@@ -38,9 +32,9 @@ define( 'WPE_CACHE_FLUSH', $private_key );
 ```
 
 #### Filter
-Add a filter to `\A7\WPE_Cache_Flush\wpe_cache_flush_token` and return the token as a string
+Add a filter to `\Chillybin\WPE_Cache_Flush\wpe_cache_flush_token` and return the token as a string
 ```php
-add_filter( '\A7\WPE_Cache_Flush\wpe_cache_flush_token', function() {
+add_filter( '\Chillybin\WPE_Cache_Flush\wpe_cache_flush_token', function() {
   return $private_key;
 } );
 ```
@@ -59,5 +53,5 @@ GET http://example.com/?wpe-cache-flush=$private_key
 
 You can also call the flush function directly from your code via 
 ```php
-\A7\WPE_Cache_Flush\cache_flush()
+\Chillybin\WPE_Cache_Flush\cache_flush()
 ```
